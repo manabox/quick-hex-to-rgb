@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>￼Quick HEX to RGB</title>
+	<meta name="description" content="">
+
+<!-- External files -->
+	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<h1>￼Quick HEX to RGB</h1>
+	<p class="desc">カラーコードを入力してRGB値に変換します。Enterキーでリストに追加。コードはクリックでコピーできます。</p>
+
+	<div id="app">
+		#<input v-model="newColor" type="text" placeholder="00bbdd" @keyup.enter="addColor" autofocus>
+		<button @click.prevent="addColor">Add</button>
+
+		<div class="new-color" v-if="newColor != ''">
+			<div class="color-sample" :style="{background: '#' + newColor}"></div>
+			<p class="copy-value" :data-clipboard-text="'rgb('+ rgbValue +')'" >rgb({{rgbValue}})</p>
+		</div>
+
+		<table>
+			<tr>
+				<th>Color</th>
+				<th>Hex Code</th>
+				<th>RGB</th>
+			</tr>
+			<tr v-for="list in reverseItems">
+				<td><div class="color-sample" :style="{background: '#' + list.listHex}"></div></td>
+				<td class="copy-value" :data-clipboard-text="'#'+ list.listHex">#{{list.listHex}}</td>
+				<td class="copy-value" :data-clipboard-text="'rgb('+ list.listRgb +')'">rgb({{list.listRgb}})</td>
+			</tr>
+		</table>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>

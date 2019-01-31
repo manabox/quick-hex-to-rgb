@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/************************************************************************************
+GENERAL STYLING
+*************************************************************************************/
+body{
+	color: #333;
+	text-align: center;
+}
+h1 {
+	margin: 20px 0;
+}
+.desc {
+	margin-bottom: 40px;
+}
+
+.new-color {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.new-color .color-sample {
+	margin-right: 20px;
+}
+input[type="text"] {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 5px;
+	width: 200px;
+	font-size: 2rem;
+}
+button {
+	background: #ddd;
+	border-radius: 5px;
+	padding: 5px;
+	font-size: 2rem;
+}
+
+table {
+	border-collapse:collapse;
+	text-align: center;
+	width: 50%;
+	margin: 40px auto;
+}
+th {
+	background:#efefef;
+}
+th,
+td {
+	border:1px solid #ddd;
+	padding:10px;
+	vertical-align:middle;
+}
+.color-sample {
+	width: 60px;
+	height: 40px;
+	border-radius: 5px;
+	display: inline-block;
+}
+.copy-value {
+	cursor: pointer;
+}
+.copy-value:hover {
+	background: #f6f6f6;
+}
