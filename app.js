@@ -43,5 +43,29 @@ new Vue({
 });
 
 
-// Click and copy
-new ClipboardJS('.copy-value');
+/* CLICK AND COPY
+--------------------------------*/
+var clipboard = new ClipboardJS('.copy-value');
+
+// Select all .copy-value items
+var btns = document.querySelectorAll('.copy-value');
+
+// Remove .tooptip class by mouseout
+for(var i=0;i<btns.length;i++){
+    btns[i].addEventListener('mouseleave',clearTooltip);
+}
+function clearTooltip(e){
+    e.currentTarget.setAttribute('class','copy-value');
+}
+
+// Add .tooltip class when it's clicked
+function showTooltip(elem){
+    elem.setAttribute('class','copy-value tooltip');
+}
+
+clipboard.on('success', function(e) {
+    showTooltip(e.trigger);
+
+    // Clear selecting text
+    e.clearSelection();
+});

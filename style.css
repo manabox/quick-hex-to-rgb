@@ -1,8 +1,11 @@
 @charset "UTF-8";
 
-/************************************************************************************
+/****************************************************************
 GENERAL STYLING
-*************************************************************************************/
+*****************************************************************/
+html {
+    font-size: 100%;
+}
 body{
 	color: #333;
 	text-align: center;
@@ -14,6 +17,9 @@ h1 {
 	margin-bottom: 40px;
 }
 
+/****************************************************************
+ADD NEW COLOR AREA
+*****************************************************************/
 .new-color {
 	display: flex;
 	justify-content: center;
@@ -36,6 +42,9 @@ button {
 	font-size: 2rem;
 }
 
+/****************************************************************
+COLOR LIST AREA
+*****************************************************************/
 table {
 	border-collapse:collapse;
 	text-align: center;
@@ -57,9 +66,41 @@ td {
 	border-radius: 5px;
 	display: inline-block;
 }
+
+/****************************************************************
+COPY TEXT
+*****************************************************************/
 .copy-value {
 	cursor: pointer;
+	position: relative;
 }
 .copy-value:hover {
-	background: #f6f6f6;
+	animation: hover-flash 1s;
+}
+
+/* Animation */
+@keyframes hover-flash {
+  from { opacity: .2; }
+  to { opacity: 1; }
+}
+
+/* Tooltip */
+.tooltip::after {
+	content: 'Copied!';
+	background: #333;
+	display: inline-block;
+	color: #fff;
+	border-radius: 5px;
+	position: absolute;
+	left: 50%;
+	bottom: -14px;
+	transform: translate(-50%, 0);
+	font-size: .75rem;
+	padding: 4px 10px 6px 10px;
+	animation: fade-tooltip .5s 1s 1 forwards;
+}
+
+/* Animation */
+@keyframes fade-tooltip {
+  to { opacity: 0; }
 }
