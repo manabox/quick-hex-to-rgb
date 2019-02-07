@@ -4,41 +4,75 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 	<title>￼Quick HEX to RGB</title>
-	<meta name="description" content="">
+	<meta name="description" content="Convert HEX color code to RGB value quickly">
 
-<!-- External files -->
+<!-- CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Varela+Round" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-	<h1>￼Quick HEX to RGB</h1>
-	<p class="desc">カラーコードを入力してRGB値に変換します。Enterキーでリストに追加。コードはクリックでコピーできます。</p>
+	<svg class="defs">
+		<symbol id="github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+		<symbol id="heart" viewBox="0 0 26 22.8"> <path d="M13,4.8C9.5-3.2,0-0.7,0,8.4c0.2,8.2,13,14.4,13,14.4s12.8-6.2,13-14.4C26-0.7,16.5-2.2,13,4.8z"/> </symbol>
+	</svg>
+	<div class="wrapper">
+		<header>
+			<h1>￼Quick HEX to RGB</h1>
+			<p class="desc">Press ENTER key to add to the list. Click and copy the value.</p>
+			<p class="desc desc-ja">Enterキーでリストに追加。コードはクリックでコピーできます。</p>
+		</header>
 
-	<div id="app">
-		#<input v-model="newColor" type="text" placeholder="00bbdd" @keyup.enter="addColor" autofocus>
-		<button @click.prevent="addColor">Add</button>
+		<section id="app">
+			<span class="hash">#</span><input v-model="newColor" type="text" placeholder="00bbdd" @keyup.enter="addColor" autofocus>
+			<button @click.prevent="addColor">Add</button>
 
-		<div class="new-color" v-if="newColor != ''">
-			<div class="color-sample" :style="{background: '#' + newColor}"></div>
-			<p class="copy-value" :data-clipboard-text="'rgb('+ rgbValue +')'" >rgb({{rgbValue}})</p>
-		</div>
+			<div class="new-color" v-if="newColor != ''">
+				<div class="color-sample" :style="{background: '#' + newColor}"></div>
+				<p class="copy-value" :data-clipboard-text="'rgb('+ rgbValue +')'" >rgb({{rgbValue}})</p>
+			</div>
 
-		<table>
-			<tr>
-				<th>Color</th>
-				<th>Hex Code</th>
-				<th>RGB</th>
-			</tr>
-			<tr v-for="list in reverseItems">
-				<td><div class="color-sample" :style="{background: '#' + list.listHex}"></div></td>
-				<td class="copy-value" :data-clipboard-text="'#'+ list.listHex">#{{list.listHex}}</td>
-				<td class="copy-value" :data-clipboard-text="'rgb('+ list.listRgb +')'">rgb({{list.listRgb}})</td>
-			</tr>
-		</table>
+			<table>
+				<tr>
+					<th>Color</th>
+					<th>Hex Code</th>
+					<th>RGB</th>
+				</tr>
+				<tr v-for="list in reverseItems">
+					<td><div class="color-sample" :style="{background: '#' + list.listHex}"></div></td>
+					<td class="copy-value" :data-clipboard-text="'#'+ list.listHex">#{{list.listHex}}</td>
+					<td class="copy-value" :data-clipboard-text="'rgb('+ list.listRgb +')'">rgb({{list.listRgb}})</td>
+				</tr>
+			</table>
+
+			<a class="btn-github" href="#"><svg><use xlink:href="#github" /></svg>View on Github</a>
+		</section>
+
+		<aside>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- Responsive-horizontal -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-7835790423256013"
+			     data-ad-slot="5005577572"
+			     data-ad-format="auto"
+			     data-full-width-responsive="true"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</aside>
 	</div>
 
+	<footer>
+		<p class="copyright">
+			Made with <a class="heart-link" href="https://www.instagram.com/ohana_box/"><svg aria-label="love"><use xlink:href="#heart" /></svg></a>
+			by <a href="http://www.webcreatormana.com/">Mana</a>
+		</p>
+	</footer>
+
+<!-- JS -->
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
 	<script src="app.js"></script>
