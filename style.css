@@ -224,3 +224,46 @@ footer {
 		transform-origin: center center;
 	}
 }
+
+/****************************************************************
+FOR SMALL SCREEN
+*****************************************************************/
+@media (max-width: 700px) {
+	#app {
+		margin-top: 2rem;
+	}
+	.hash {
+	    font-size: 2rem;
+	    margin-right: 0;
+	}
+	input[type="text"] {
+	    width: 53vw;
+	    font-size: 2.5rem;
+	}
+	button {
+	    padding: 1rem .5rem;
+	    font-size: 1.25rem;
+	}
+	.new-color {
+		margin: 2rem 0;
+	}
+	.new-color .copy-value {
+    	font-size: 1.25rem;
+	}
+	table {
+		width: 100%;
+	}
+	td.copy-value {
+		font-size: 1rem;
+	}
+	.color-sample {
+	    width: 40px;
+	    height: 30px;
+	}
+}
+
+@media (max-width: 500px) {
+	h1 {
+		font-size: 1.75rem;
+	}
+}

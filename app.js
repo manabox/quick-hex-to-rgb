@@ -32,7 +32,7 @@ new Vue({
                 b = parseInt(hexValue[4].toString() + hexValue[5].toString(), 16);
             }
 
-            //If color code is not valid, show '---'
+            // If color code is not valid, show '---'
             if (this.validColor.test(this.newColor) !== true) {
                 r = g = b = '---';
             }
