@@ -14,12 +14,23 @@ new Vue({
     computed: {
         // Getting hex code and convert to RGB value
         rgbValue: function() {
-            const hexcolor = '0x' + this.newColor;
-            let r = String(Math.floor(hexcolor / 0x010000));
-            let g = String(Math.floor((hexcolor % 0x010000) / 0x000100));
-            let b = String(hexcolor % 0x000100);
+            // Get each letter of hex code
+            const hexValue = this.newColor.split('');
+            let r,
+                g,
+                b;
 
-            console.log(this.newColor.length);
+            // 3 digit hex code (repeat same letter to make it as 6 digits)
+            if (this.newColor.length === 3) {
+                r = parseInt(hexValue[0].toString() + hexValue[0].toString(), 16);
+                g = parseInt(hexValue[1].toString() + hexValue[1].toString(), 16);
+                b = parseInt(hexValue[2].toString() + hexValue[2].toString(), 16);
+            // 6 digt hex code
+            } else if (this.newColor.length === 6) {
+                r = parseInt(hexValue[0].toString() + hexValue[1].toString(), 16);
+                g = parseInt(hexValue[2].toString() + hexValue[3].toString(), 16);
+                b = parseInt(hexValue[4].toString() + hexValue[5].toString(), 16);
+            }
 
             //If color code is not valid, show '---'
             if (this.validColor.test(this.newColor) !== true) {
