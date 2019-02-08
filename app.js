@@ -2,6 +2,7 @@ new Vue({
     el: '#app',
     data: {
         newColor: '',
+        validColor: /^([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/,
 
         // Dafault Color
         lists: [{
@@ -14,9 +15,17 @@ new Vue({
         // Getting hex code and convert to RGB value
         rgbValue: function() {
             const hexcolor = '0x' + this.newColor;
-            const r = String(Math.floor(hexcolor / 0x010000));
-            const g = String(Math.floor((hexcolor % 0x010000) / 0x000100));
-            const b = String(hexcolor % 0x000100);
+            let r = String(Math.floor(hexcolor / 0x010000));
+            let g = String(Math.floor((hexcolor % 0x010000) / 0x000100));
+            let b = String(hexcolor % 0x000100);
+
+            console.log(this.newColor.length);
+
+            //If color code is not valid, show '---'
+            if (this.validColor.test(this.newColor) !== true) {
+                r = g = b = '---';
+            }
+
             return r + ', ' + g + ', ' + b;
         },
 
@@ -29,7 +38,8 @@ new Vue({
     methods: {
         // Adding new row
         addColor: function() {
-            if (this.newColor !== '') {
+            // Not empty & valid value
+            if (this.newColor !== '' && this.validColor.test(this.newColor) == true) {
                 const newList = {
                     // Define new color
                     listHex: this.newColor,
@@ -45,13 +55,13 @@ new Vue({
 
 /* CLICK AND COPY
 --------------------------------*/
-var clipboard = new ClipboardJS('.copy-value');
+const clipboard = new ClipboardJS('.copy-value');
 
 // Select all .copy-value items
-var btns = document.querySelectorAll('.copy-value');
+const btns = document.querySelectorAll('.copy-value');
 
 // Remove .tooptip class by mouseout
-for(var i=0;i<btns.length;i++){
+for(let i=0;i<btns.length;i++){
     btns[i].addEventListener('mouseleave',clearTooltip);
 }
 function clearTooltip(e){
