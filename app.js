@@ -3,6 +3,7 @@ new Vue({
     data: {
         newColor: '',
         validColor: /^([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/,
+        invalidColor: false,
 
         // Dafault Color
         lists: [{
@@ -58,6 +59,16 @@ new Vue({
                 }
                 this.lists.push(newList);
                 this.newColor = '';
+                this.invalidColor = false;
+            } else {
+                // Add class and hake a text field
+                this.invalidColor = true;
+            }
+        },
+        // Remove .error class when any key except Enter pressed
+        removeClass: function(event){
+            if (event.key !== 'Enter') {
+                this.invalidColor = false;
             }
         }
     }

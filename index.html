@@ -26,8 +26,9 @@
 		</header>
 
 		<section id="app">
+
 			<span class="hash">#</span>
-			<input v-model="newColor" type="text" placeholder="00bbdd" @keyup.enter="addColor" autofocus>
+			<input v-model="newColor" v-bind:class="{ error: invalidColor }" type="text" placeholder="00bbdd" @keyup.enter="addColor" @keyup="removeClass" autofocus>
 			<button @click.prevent="addColor">Add</button>
 
 			<div class="new-color" v-if="newColor != ''">

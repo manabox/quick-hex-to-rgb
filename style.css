@@ -162,6 +162,26 @@ COPY TEXT
 }
 
 /****************************************************************
+INVALID COLOR
+*****************************************************************/
+.error {
+	animation: shake .6s ease-out both;
+}
+
+/* Animation */
+@keyframes shake {
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-6px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(6px, 0, 0);
+  }
+}
+
+/****************************************************************
 BELOW THE CONTENTS
 *****************************************************************/
 /* Github button */
