@@ -61,7 +61,7 @@ new Vue({
                 this.newColor = '';
                 this.invalidColor = false;
             } else {
-                // Add class and hake a text field
+                // Add class and shake a text field
                 this.invalidColor = true;
             }
         },
