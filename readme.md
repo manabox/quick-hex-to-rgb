@@ -1,5 +1,7 @@
 # Quick HEX to RGB
 
+[Demo](https://manabox.github.io/quick-hex-to-rgb/)
+
 Press ENTER key to add to the list. Click and copy the value.
 
 カラーコードをRGB値に変換します。Enterキーでリストに追加。コードはクリックでコピーできます。
